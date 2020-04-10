@@ -41,7 +41,7 @@ func _unhandled_input(event):
 			mineral = scene.get_node("Minerals/Mineral1")
 			changeStateMineral(mineral)
 
-func changeStateMineral(mineral):
+func changeStateMineral(mineral : Node):
 	if mineral != null and mineral.visible == true:
 		listBroken.push_back([mineral, OS.get_ticks_msec(), 30000, true])
 		mineral.visible = false
