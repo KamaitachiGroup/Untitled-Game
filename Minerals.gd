@@ -63,7 +63,6 @@ func loadStateMinerals():
 		if listBroken[i][STATE] == true:
 			listBroken[i][NODE] = scene.get_node("Minerals/" + listBroken[i][NODE])
 			listBroken[i][NODE].visible = false
-	print(listBroken)
 	loadF.close()
 
 func _notification(what):
