@@ -21,6 +21,7 @@ func _ready():
 	thread = Thread.new()
 	thread.start(self, "respawnMinerals", listBroken)
 
+# warning-ignore:shadowed_variable
 func respawnMinerals(listBroken):
 	while (true):
 		for i in range(0, listBroken.size()):
@@ -38,9 +39,12 @@ func _unhandled_input(event):
 			get_tree().quit()
 		elif event.pressed and event.scancode == KEY_ENTER:
 			mineral = scene.get_node("Minerals/Mineral1")
-			if mineral != null and mineral.visible == true:
-				listBroken.push_back([mineral, OS.get_ticks_msec(), 30000, true])
-				mineral.visible = false
+			changeStateMineral(mineral)
+
+func changeStateMineral(mineral):
+	if mineral != null and mineral.visible == true:
+		listBroken.push_back([mineral, OS.get_ticks_msec(), 30000, true])
+		mineral.visible = false
 
 func saveStateMinerals():
 	var save = File.new()
