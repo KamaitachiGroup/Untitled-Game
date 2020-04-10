@@ -12,7 +12,6 @@ enum {
 var scene = null
 var mineral = null
 var listBroken = [] # [[mineral, 0, 30, false]] in it 
-var startTime = OS.get_ticks_msec()
 var thread
 
 # Called when the node enters the scene tree for the first time.
